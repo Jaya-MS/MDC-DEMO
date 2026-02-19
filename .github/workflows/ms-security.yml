@@ -1,9 +1,14 @@
-name: Microsoft Security DevOps Scan
+name: Microsoft Security DevOps
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  security-events: write
 
 jobs:
   msdo:
@@ -15,4 +20,4 @@ jobs:
       - name: Microsoft Security DevOps Scan
         uses: microsoft/security-devops-action@v1
         with:
-          categories: 'code, secrets, dependencies, IaC'
+          categories: code, secrets, dependencies, iac
